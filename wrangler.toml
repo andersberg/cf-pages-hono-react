@@ -1,0 +1,24 @@
+name = "cf-pages-hono-react-d1"
+compatibility_date = "2024-08-20"
+pages_build_output_dir = "./dist"
+
+[[d1_databases]]
+binding = "DB" # i.e. available in your Worker on env.DB
+database_name = "cf-pages-hono-react-d1"
+database_id = "bafb5c95-a3f2-437e-bf0a-1e91cebec1a7"
+
+# [vars]
+# MY_VAR = "my-variable"
+
+# [[kv_namespaces]]
+# binding = "MY_KV_NAMESPACE"
+# id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# [[r2_buckets]]
+# binding = "MY_BUCKET"
+# bucket_name = "my-bucket"
+
+
+
+# [ai]
+# binding = "AI"
