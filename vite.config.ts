@@ -13,12 +13,22 @@ export default defineConfig(({ mode }) => {
             entryFileNames: "[name].js",
             assetFileNames: "[name].[ext]",
           },
+          onwarn(warning, warn) {
+            // Suppress "Module level directives cause errors when bundled" warnings
+            if (warning.code === "MODULE_LEVEL_DIRECTIVE") {
+              return;
+            }
+            warn(warning);
+          },
         },
       },
     };
   }
 
   return {
+    optimizeDeps: {
+      entries: [],
+    },
     ssr: {
       external: ["react", "react-dom"],
     },
