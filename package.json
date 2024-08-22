@@ -1,13 +1,16 @@
 {
-  "name": "cf-pages-hono-react",
+  "name": "cf-pages-hono-react-d1",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build --mode client && vite build",
     "preview": "wrangler pages dev",
     "deploy": "$npm_execpath run build && wrangler pages deploy",
-    "db:migrate": "drizzle-kit migrate",
-    "db:generate": "drizzle-kit generate"
+    "db:generate": "drizzle-kit generate",
+    "d1:local:migrate": "wrangler d1 execute cf-pages-hono-react-d1 --local",
+    "d1:local:execute": "wrangler d1 execute cf-pages-hono-react-d1 --local",
+    "d1:remote:migrate": "wrangler d1 execute cf-pages-hono-react-d1 --remote",
+    "d1:remote:execute": "wrangler d1 execute cf-pages-hono-react-d1 --remote"
   },
   "dependencies": {
     "@hono/zod-validator": "^0.2.2",

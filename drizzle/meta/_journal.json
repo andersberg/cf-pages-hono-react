@@ -8,6 +8,20 @@
       "when": 1724237650413,
       "tag": "0000_lucky_gorgon",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1724314923152,
+      "tag": "0001_dry_newton_destine",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1724315770281,
+      "tag": "0002_dazzling_captain_america",
+      "breakpoints": true
     }
   ]
 }
