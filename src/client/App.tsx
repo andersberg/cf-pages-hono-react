@@ -1,32 +1,13 @@
-import { useEffect, useState } from "react";
-import { apiClient } from "../api/client";
-import { DisplayMessage } from "./components/Message/DisplayMessage";
-import { EditMessage } from "./components/Message/EditMessage";
-
-async function fetchData() {
-  return await apiClient.data.$get().then((res) => res.json());
-}
+import { Counter } from "./components/Counter";
+import { AddMessage } from "./components/Message/AddMessage";
+import { DisplayMessages } from "./components/Message/DisplayMessage";
 
 export function App() {
-  const [count, setCount] = useState(0);
-  const [data, setData] = useState<Record<string, any>>();
-
-  useEffect(() => {
-    if (!data) {
-      fetchData().then((data) => setData(data));
-    }
-  }, [data]);
-
   return (
-    <div>
-      <DisplayMessage />
-      <EditMessage />
+    <div className="flex flex-col gap-4 mx-auto max-w-2xl p-6 min-h-svh bg-sky-200 text-neutral-900">
+      <DisplayMessages />
 
-      <button onClick={() => setCount(count + 1)}>
-        <span>You clicked {count} times.</span>
-      </button>
-
-      {data && <pre>Data: {JSON.stringify(data, null, 2)}</pre>}
+      <AddMessage />
     </div>
   );
 }
