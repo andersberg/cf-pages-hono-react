@@ -8,28 +8,25 @@ export interface Bindings {
 
 const app = new Hono<{ Bindings: Bindings }>();
 
-app.route("/api", apiRoute);
-
-app.get("/", (c) => {
+export default app.route("/api", apiRoute).get("/", (c) => {
   return c.html(
     renderToString(
       <html>
         <head>
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link href="/static/style.css" rel="stylesheet" />
+          <link href="/static/global.css" rel="stylesheet" />
+          <link href="/client.css" rel="stylesheet" />
           {import.meta.env.PROD ? (
-            <script type="module" src="/client.js"></script>
+            <script type="module" src="/client.entry.js" defer />
           ) : (
-            <script type="module" src="/src/client.entry.tsx"></script>
+            <script type="module" src="/src/client.entry.tsx" />
           )}
         </head>
         <body>
-          <div id="root"></div>
+          <div id="root" />
         </body>
       </html>
     )
   );
 });
-
-export default app;
