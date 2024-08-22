@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { apiClient } from "../../../api/client";
-import { queryClient } from "../../../client.entry";
+import { queryClient } from "../../root";
 import { messageQueryOptions } from "./DisplayMessage";
 const MESSAGE_INPUT_ID = "message-input";
 
