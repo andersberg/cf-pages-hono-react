@@ -46,6 +46,7 @@ export function EditMessage() {
     >
       <input
         id={MESSAGE_INPUT_ID}
+        name={MESSAGE_INPUT_ID}
         type="text"
         defaultValue={text}
         placeholder={text}
