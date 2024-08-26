@@ -1,5 +1,4 @@
 import { sql } from "drizzle-orm";
-import { time } from "drizzle-orm/mysql-core";
 import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
 
 export const itemSchema = sqliteTable("item", {

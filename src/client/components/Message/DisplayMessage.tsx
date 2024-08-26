@@ -22,8 +22,9 @@ export function DisplayMessages() {
   }
 
   return (
-    <div>
-      <h1 className="text-2xl font-bold uppercase my-4">Messages</h1>
+    <div className="w-full">
+      <h2 className="my-4 text-2xl font-bold uppercase">Messages</h2>
+
       <ul className="divide-y divide-neutral-500">
         {message.data?.map((item) => (
           <li key={item.id} className="py-2">
@@ -34,6 +35,8 @@ export function DisplayMessages() {
           </li>
         ))}
       </ul>
+
+      <p>Number of messages: {message.data?.length}</p>
     </div>
   );
 }

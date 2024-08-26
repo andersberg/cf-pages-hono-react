@@ -1,5 +1,5 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { apiClient } from "../../../api/client";
+import { apiClient } from "@/api/client";
+import { useMutation } from "@tanstack/react-query";
 import { queryClient } from "../../queries";
 import { Button } from "../Button";
 import { Input } from "../Input";
@@ -14,7 +14,6 @@ async function updateMessage(text: string) {
 }
 
 export function AddMessage() {
-  const message = useQuery(messageQueryOptions);
   const mutate = useMutation({
     mutationFn: updateMessage,
     onSuccess: () => {
@@ -22,25 +21,14 @@ export function AddMessage() {
     },
   });
 
-  if (message.isLoading) {
-    return <p>Loading...</p>;
-  }
-
-  if (message.isError) {
-    return <p>Error: {message.error.message}</p>;
-  }
-
-  const text = message.data;
-
   return (
     <form
-      className="flex gap-2 w-full"
+      className="flex w-full max-w-xl gap-2"
       onSubmit={(event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const formData = new FormData(event.currentTarget);
 
+        const formData = new FormData(event.currentTarget);
         const input = formData.get(MESSAGE_INPUT_ID);
-        console.log({ input });
 
         if (typeof input === "string") {
           mutate.mutate(input);
